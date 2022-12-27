@@ -1,0 +1,12 @@
+<div class="container mt-4">
+    <ng-container *ngIf="gifts.length > 0; else noGifts">
+        <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 content-card" *ngFor="let gift of gifts">
+            <img [src]="gift.url" class="rounded mx-auto d-block gif-item" alt="image gift" />
+            <button (click)="deleteGifts(gift)" class="btn btn-primary mt-4 mb-4">Eliminar</button>
+          </div>
+    </ng-container>
+</div>
+
+<ng-template #noGifts>
+    <h5>No existen Gifts</h5>
+</ng-template>

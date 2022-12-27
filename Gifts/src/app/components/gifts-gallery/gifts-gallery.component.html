@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="titulo">
+        <h4>Galería de Gifts</h4>
+    </div>
+
+    <form (ngSubmit)="save()" autocomplete="off" [formGroup]="myForm">
+        <div class="row">
+            <div class="col col-xl-9 col-lg-9 col-md-9 col-sm-6 col-6">
+                <div class="mb-3">
+                    <input type="url" class="form-control" formControlName="gifts" placeholder="Ingrese la URL del Gift que desea añadir" />
+                    <span class="form-text text-danger" *ngIf="campoValido('gifts')">Algo salió mal! Existe un error en la URL</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">
+            <button type="submit" class="btn btn-primary">Añadir</button>
+        </div>
+    </form>
+
+    <!-- ********************* -->
+    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <app-gifts-list [gifts]="giftsList" (onDeleteGifts)="deleteGifts($event)"></app-gifts-list>
+    </div>
+</div>
